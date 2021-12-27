@@ -71,7 +71,7 @@
         }
     </style>
 </head>
-<body>
+<body id="body">
 
 <div id="main">
 
@@ -109,24 +109,36 @@
 
   window.selectedSearch = OPTIONS.YOUTUBE;
 
-  document.getElementById('youtube').onclick = function() {
+  document.getElementById('youtube').onclick = function(e) {
+    e.stopPropagation();
     window.selectedSearch = OPTIONS.YOUTUBE;
 
     document.getElementById('search-button').innerText = 'SEARCH YOUTUBE';
 
     document.getElementById('youtube').classList.add('selected');
     document.getElementById('google').classList.remove('selected');
-    document.getElementById('search').focus();
+    focusSearch();
   }
 
-  document.getElementById('google').onclick = function() {
+  document.getElementById('google').onclick = function(e) {
+    e.stopPropagation();
     window.selectedSearch = OPTIONS.GOOGLE;
 
     document.getElementById('search-button').innerText = 'SEARCH GOOGLE';
     document.getElementById('google').classList.add('selected');
     document.getElementById('youtube').classList.remove('selected');
+
+    focusSearch();
+  }
+
+  document.getElementById('body').onclick = function() {
+    focusSearch();
+  }
+
+  function focusSearch() {
     document.getElementById('search').focus();
   }
+
 
   document.getElementById('search-form').onsubmit = function(e) {
     e.preventDefault();

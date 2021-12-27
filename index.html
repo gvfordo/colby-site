@@ -49,8 +49,8 @@
             font-size: 32px;
             text-align: center;
             border: 1px solid black;
-            background-color: lightcoral;
-            color: #0b6fcc;
+            background-color: #841616;
+            color: #ffffff;
             padding: 8px;
             border-radius: 10px;
             cursor: pointer;
@@ -115,6 +115,7 @@
 
     document.getElementById('youtube').classList.add('selected');
     document.getElementById('google').classList.remove('selected');
+    document.getElementById('search').focus();
   }
 
   document.getElementById('google').onclick = function() {
@@ -123,6 +124,7 @@
     document.getElementById('search-button').innerText = 'SEARCH GOOGLE';
     document.getElementById('google').classList.add('selected');
     document.getElementById('youtube').classList.remove('selected');
+    document.getElementById('search').focus();
   }
 
   document.getElementById('search-form').onsubmit = function(e) {

@@ -1,0 +1,141 @@
+<html>
+<head>
+    <title>Stanley Colby's Search Portal</title>
+    <link rel="icon" type="image/png" href="/mylogo.png"/>
+    <style>
+        body {
+
+        }
+
+        #main {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #search-options {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .option {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .option.selected {
+            background-color: blue;
+            border-radius: 5px;
+        }
+
+        .option img {
+            min-height: 100px;
+            min-width: 100px;
+        }
+
+        #search {
+            width: 100%;
+            font-size: 32px;
+            padding: 12px;
+        }
+
+        #search-button {
+            width: 100%;
+            font-size: 32px;
+            text-align: center;
+            border: 1px solid black;
+            background-color: lightcoral;
+            color: #0b6fcc;
+            padding: 8px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #youtube-image {
+            width: 100%;
+        }
+
+        #google-image {
+            width: 100%;
+        }
+
+        #youtube {
+            padding: 0px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="main">
+
+    <div id="search-options">
+        <div id="google" class="option selected">
+            <img
+                    alt="GOOGLE"
+                    id='google-image'
+                    class='search-image'
+                    src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png" />
+        </div>
+        <div id="youtube" class="option">
+
+            <img
+                    alt="YOUTUBE"
+                    id='youtube-image'
+                    class='search-image'
+                    src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c545.png" />
+        </div>
+    </div>
+    <form id="search-form">
+    <input id="search" name="search-input" type="text" />
+        <br/>
+    <button id="search-button">SEARCH GOOGLE</button>
+    </form>
+</div>
+
+
+
+<script>
+  var OPTIONS = {
+    GOOGLE: 'GOOGLE',
+    YOUTUBE: 'YOUTUBE',
+  }
+
+  window.selectedSearch = OPTIONS.GOOGLE;
+
+  document.getElementById('youtube').onclick = function() {
+    window.selectedSearch = OPTIONS.YOUTUBE;
+
+    document.getElementById('search-button').innerText = 'SEARCH YOUTUBE';
+
+    document.getElementById('youtube').classList.add('selected');
+    document.getElementById('google').classList.remove('selected');
+  }
+
+  document.getElementById('google').onclick = function() {
+    window.selectedSearch = OPTIONS.GOOGLE;
+
+    document.getElementById('search-button').innerText = 'SEARCH GOOGLE';
+    document.getElementById('google').classList.add('selected');
+    document.getElementById('youtube').classList.remove('selected');
+  }
+
+  document.getElementById('search-form').onsubmit = function(e) {
+    e.preventDefault();
+
+    var searchInputValue = document.getElementById('search').value;
+    if (!searchInputValue) return;
+
+    if (window.selectedSearch === OPTIONS.GOOGLE) {
+      location.href = ('https://www.google.com/search?q=' + searchInputValue);
+
+    } else if (window.selectedSearch === OPTIONS.YOUTUBE) {
+      window.open('https://www.youtube.com/results?search_query=' + searchInputValue, '_self');
+    }
+  }
+</script>
+</body>
+</html>

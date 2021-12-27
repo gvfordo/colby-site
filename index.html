@@ -76,14 +76,14 @@
 <div id="main">
 
     <div id="search-options">
-        <div id="google" class="option selected">
+        <div id="google" class="option">
             <img
                     alt="GOOGLE"
                     id='google-image'
                     class='search-image'
                     src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png" />
         </div>
-        <div id="youtube" class="option">
+        <div id="youtube" class="option selected">
 
             <img
                     alt="YOUTUBE"
@@ -107,7 +107,7 @@
     YOUTUBE: 'YOUTUBE',
   }
 
-  window.selectedSearch = OPTIONS.GOOGLE;
+  window.selectedSearch = OPTIONS.YOUTUBE;
 
   document.getElementById('youtube').onclick = function() {
     window.selectedSearch = OPTIONS.YOUTUBE;

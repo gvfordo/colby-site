@@ -141,6 +141,12 @@
     document.getElementById('search').focus();
   }
 
+  document.getElementById('search').onkeydown = function(e) {
+    if (e.key === 'Enter') {
+      document.getElementById('search-button').click();
+    }
+  }
+
 
   document.getElementById('search-form').onsubmit = function(e) {
     e.preventDefault();
